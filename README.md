@@ -1,5 +1,7 @@
 # LSM KV engine
 
+[![ci](https://github.com/SaddleDove/lsm/actions/workflows/ci.yml/badge.svg)](https://github.com/SaddleDove/lsm/actions/workflows/ci.yml)
+
 Single-process, single-node key-value store in Go with zero external dependencies (standard library only).
 
 - Write path: `WriteBatch -> WAL -> skiplist memtable -> SSTable (L0) -> leveled compaction (L1..L6) -> MANIFEST`.
