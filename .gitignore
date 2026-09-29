@@ -1,0 +1,19 @@
+# build output
+/lsm
+/lsmctl
+/crashkill
+/kvbench
+/report
+*.test
+*.out
+
+# scratch db dirs
+/tmp/
+/data/
+*.db
+
+# editor / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/

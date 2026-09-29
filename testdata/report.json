@@ -1,0 +1,87 @@
+{
+  "generated": "2026-09-29T14:52:47.401912018Z",
+  "gates": [
+    {
+      "name": "G1_unit",
+      "pass": true,
+      "detail": "ok  \tlsm/internal/ikey\t0.004s\nok  \tlsm/internal/bloom\t0.007s\nok  \tlsm/internal/memtable\t0.003s\nok  \tlsm/internal/wal\t0.004s\nok  \tlsm/internal/sstable\t0.005s\nok  \tlsm/internal/fsx\t0.004s\nok  \tlsm/internal/version\t0.004s\nok  \tlsm/internal/crc32c\t0.002s",
+      "elapsed": "1.154142607s"
+    },
+    {
+      "name": "G2_invariants_I1_I8",
+      "pass": true,
+      "detail": "ok  \tlsm/internal/engine\t0.146s\n",
+      "elapsed": "462.902631ms"
+    },
+    {
+      "name": "G3_crash_matrix_c1_c10",
+      "pass": true,
+      "detail": "ok  \tlsm/internal/engine\t0.068s\n",
+      "elapsed": "403.058595ms"
+    },
+    {
+      "name": "G4_crash_scan_2000",
+      "pass": true,
+      "detail": "ok  \tlsm/internal/engine\t4.869s\n",
+      "elapsed": "5.179476001s"
+    },
+    {
+      "name": "G5_kill9",
+      "pass": true,
+      "detail": "kill9 trials=5 keys=80 ok=5 lost=0 midwrite=5",
+      "elapsed": "216.978408ms"
+    },
+    {
+      "name": "G6_WA_seq",
+      "pass": true,
+      "detail": "WA=3.0976 \u003c= 8 model=2.0 err=\u003cnil\u003e\nmode=seq n=8000 vlen=128 elapsed=27.339196ms\nbytes_in=1096000 bytes_written=3394974 live_bytes=1156401 deepest_level=1\nWA=3.0976 SA=1.0551 model=2.0\n",
+      "elapsed": "117.907383ms"
+    },
+    {
+      "name": "G7_WA_rand",
+      "pass": true,
+      "detail": "WA=2.7622 \u003c= 25 model=2.0 err=\u003cnil\u003e\nmode=rand n=4000 vlen=128 elapsed=25.128723ms\nbytes_in=1096000 bytes_written=3027377 live_bytes=791549 deepest_level=1\nWA=2.7622 SA=0.7222 model=2.0\n",
+      "elapsed": "114.034702ms"
+    },
+    {
+      "name": "G8_space_read_amp",
+      "pass": true,
+      "detail": "=== RUN   TestSpaceAmplification\n    perf_test.go:119: SA=1.083 live=237191 in=219000\n--- PASS: TestSpaceAmplification (0.01s)\n=== RUN   TestReadAmplification\n    perf_test.go:149: read amp avg sst reads/get = 2.000\n--- PASS: TestReadAmplification (0.01s)\nPASS\nok  \tlsm/internal/engine\t0.020s\n",
+      "elapsed": "334.144345ms"
+    },
+    {
+      "name": "G9_recovery",
+      "pass": true,
+      "detail": "=== RUN   TestRecoveryTime\n    perf_test.go:175: recovery 22.418361ms for 20000 keys\n--- PASS: TestRecoveryTime (0.07s)\n=== RUN   TestRecoveryTimeFull\n    perf_test.go:186: set LSM_FULL=1 to run the full-scale recovery benchmark\n--- SKIP: TestRecoveryTimeFull (0.00s)\nPASS\nok  \tlsm/internal/engine\t0.075s\n",
+      "elapsed": "401.66655ms"
+    },
+    {
+      "name": "G10_misc_tests",
+      "pass": true,
+      "detail": "ok  \tlsm/internal/engine\t0.166s\n",
+      "elapsed": "485.169487ms"
+    },
+    {
+      "name": "G11_evidence_reproducible",
+      "pass": true,
+      "detail": "report.json=true PROGRESS.md=true",
+      "elapsed": ""
+    }
+  ],
+  "metrics": {
+    "WA_rand": 2.7622,
+    "WA_rand_model": 2,
+    "WA_rand_model_dev": 0.3811,
+    "WA_rand_raw": "mode=rand n=4000 vlen=128 elapsed=25.128723ms\nbytes_in=1096000 bytes_written=3027377 live_bytes=791549 deepest_level=1\nWA=2.7622 SA=0.7222 model=2.0",
+    "WA_seq": 3.0976,
+    "WA_seq_model": 2,
+    "WA_seq_model_dev": 0.5488,
+    "WA_seq_raw": "mode=seq n=8000 vlen=128 elapsed=27.339196ms\nbytes_in=1096000 bytes_written=3394974 live_bytes=1156401 deepest_level=1\nWA=3.0976 SA=1.0551 model=2.0",
+    "kill9_keys": 80,
+    "kill9_lost": 0,
+    "kill9_midwrite": 5,
+    "kill9_ok": 5,
+    "kill9_trials": 5
+  },
+  "pass": true
+}

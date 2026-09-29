@@ -1,0 +1,40 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-test-gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: false
+
+      - name: gofmt
+        run: |
+          unformatted="$(gofmt -l .)"
+          if [ -n "$unformatted" ]; then
+            echo "gofmt found unformatted files:"
+            echo "$unformatted"
+            exit 1
+          fi
+
+      - name: go vet
+        run: go vet ./...
+
+      - name: go test
+        run: go test -count=1 ./...
+
+      - name: go test -race
+        run: go test -race -count=1 ./...
+
+      # Regenerates testdata/report.json + PROGRESS.md and checks them against
+      # the committed copies (timestamps/durations normalised). Exits non-zero
+      # if the evidence has drifted, so committed evidence cannot rot.
+      - name: gates + evidence reproducibility
+        run: go run ./cmd/report -root . -out testdata
